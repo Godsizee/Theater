@@ -1,0 +1,13 @@
+{
+  "public/assets/css/main.css": {
+    "file": "assets/styles-DTE862id.css",
+    "src": "public/assets/css/main.css",
+    "isEntry": true
+  },
+  "public/assets/js/main.js": {
+    "file": "assets/main-BIw88eDv.js",
+    "name": "main",
+    "src": "public/assets/js/main.js",
+    "isEntry": true
+  }
+}

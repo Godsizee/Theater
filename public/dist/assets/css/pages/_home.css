@@ -1,0 +1,219 @@
+@keyframes ken-burns-effect {
+    0% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+.hero {
+    min-height: 50vh;
+    display: grid;
+    place-items: center;
+    position: relative;
+    padding: 40px 20px;
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+    background-color: #140a28;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--hero-bg-image);
+    background-size: cover;
+    background-position: center;
+    animation: ken-burns-effect 40s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 10, 40, 0.7);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    animation: fadeInSlideUp 1s ease-out forwards;
+}
+
+@keyframes fadeInSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge {
+    font-weight: 700;
+    color: var(--color-warning);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    /* KORREKTUR: Feste Schriftgröße wird durch eine flüssige clamp()-Regel ersetzt. */
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.hero-subtitle {
+    /* KORREKTUR: Auch der Untertitel wird flüssig gemacht. */
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.hero-actions {
+    display: table;
+    width: auto;
+    max-width: 600px;
+    table-layout: fixed;
+    border-spacing: 15px 0;
+    border-collapse: separate;
+    margin: 0 auto;
+}
+
+.hero-actions .btn {
+    display: table-cell;
+    width: 50%;
+    margin-bottom: 0;
+}
+
+.btn-large {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+}
+
+.home-category-section {
+    padding: 40px 0;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.category-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding: 0 20px;
+}
+
+.carousel-wrapper {
+    position: relative;
+}
+
+.carousel-wrapper::before,
+.carousel-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 20px;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.carousel-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--color-surface), transparent);
+}
+
+.carousel-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--color-surface), transparent);
+}
+
+.movie-carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 220px;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 0 20px 20px 20px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) var(--color-surface);
+}
+
+.movie-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+.movie-carousel::-webkit-scrollbar-track {
+    background: #e9ecef;
+    border-radius: 10px;
+    margin: 0 20px;
+}
+.movie-carousel::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+}
+.movie-carousel::-webkit-scrollbar-thumb:hover {
+    background: var(--color-secondary);
+}
+
+.carousel-movie-card {
+    position: relative;
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-snap-align: start;
+}
+
+.carousel-movie-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.carousel-movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+}
+
+.carousel-card-overlay h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.carousel-card-overlay p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}

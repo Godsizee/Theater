@@ -1,0 +1,56 @@
+/* C:\xampp\htdocs\files\Theater\assets\css\components\_links.css */
+
+/* Diverse Links */
+.nav-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+/* Styling für den Benutzernamen-Link im Header (ANGEPASST) */
+.header-username {
+    /* Eigenschaften an .header-link angepasst für einheitliches Aussehen */
+    color: #6c757d;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    /* Vertikales Alignment und Abstand zu den anderen Links */
+    vertical-align: middle;
+    margin-right: 25px; /* Gleicher Abstand wie bei den anderen Links */
+}
+.header-username:hover {
+    color: var(--color-primary);
+}
+
+
+.header-link {
+    color: #6c757d;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+.header-link:hover {
+    color: var(--color-primary);
+}
+
+.footer-nav a {
+    color: #6c757d;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+.footer-nav a:hover {
+    color: var(--color-primary);
+}
+.footer-nav span {
+    margin: 0 10px;
+    color: var(--color-border);
+}
+.footer-copyright {
+    margin: 0 0 10px 0;
+    font-size: 0.9rem;
+}

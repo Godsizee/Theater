@@ -1,0 +1,152 @@
+/* C:\xampp\htdocs\files\Theater\assets\css\components\_form-elements.css */
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="email"],
+input[type="date"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: var(--color-text);
+    font-family: var(--font-body);
+}
+textarea { resize: vertical; }
+
+/* Spezifische Anpassungen für das select-Feld */
+select {
+    /* Browser-Standard-Styles zurücksetzen */
+    -webkit-appearance: none; /* Für Chrome, Safari, Edge */
+    -moz-appearance: none;    /* Für Firefox */
+    appearance: none;         /* Standard */
+
+    /* Eigenes Pfeil-Icon als Hintergrundbild hinzufügen */
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%236c757d"><path d="M12 16a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 1.414-1.414L12 13.586l3.293-3.293a1 1 0 0 1 1.414 1.414l-4 4A1 1 0 0 1 12 16z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Position des Pfeils */
+    background-size: 1.2em; /* Größe des Pfeils */
+    padding-right: 30px; /* Platz im Padding für den Pfeil schaffen */
+}
+
+nput[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(57, 0, 153, 0.15);
+}
+
+
+/* === NEUE UND VERBESSERTE STILE FÜR DIE VALIDIERUNG === */
+
+/* Keyframe-Animation für das Einblenden der Nachricht */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframe-Animation für das "Wackeln" des Input-Feldes bei einem Fehler */
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* Diese Klasse wird per JS zum Input-Feld hinzugefügt, wenn es einen Fehler gibt */
+input.invalid-input {
+  border-color: var(--color-danger);
+  animation: shakeError 0.3s ease-in-out;
+}
+
+/* Grund-Stil für die Status-Nachricht */
+.validation-status {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Abstand zwischen Icon und Text */
+    margin-top: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    min-height: 1.2em;
+    opacity: 0; /* Standardmäßig unsichtbar */
+    transform: translateY(5px); /* Startposition für Animation */
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Klasse, die per JS hinzugefügt wird, um die Nachricht sichtbar zu machen */
+.validation-status.visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInSlideUp 0.3s ease-out forwards;
+}
+
+/* Styling für die verschiedenen Zustände */
+.validation-status.valid { color: #28a745; }
+.validation-status.invalid { color: var(--color-danger); }
+.validation-status.checking { color: #6c757d; }
+
+/* Pseudo-Element, das unser SVG-Icon enthalten wird */
+.validation-status.valid::before,
+.validation-status.invalid::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+/* Grünes Haken-Icon als SVG */
+.validation-status.valid::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2328a745"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>');
+}
+
+/* Rotes Warn-Icon als SVG */
+.validation-status.invalid::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff0054"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>');
+}
+/* Dark Mode Anpassungen für Formular-Elemente */
+.dark-mode input[type="text"],
+.dark-mode input[type="password"],
+.dark-mode input[type="number"],
+.dark-mode input[type="email"],
+.dark-mode input[type="date"],
+.dark-mode input[type="tel"],
+.dark-mode textarea,
+.dark-mode select {
+    background-color: var(--color-background); /* Nutzt den dunklen Hintergrund */
+    color: var(--color-text);             /* Nutzt die helle Schriftfarbe */
+    border-color: var(--color-border);       /* Nutzt den dunklen Rahmen */
+}
+
+/* Optional: Besserer Fokus-Effekt im Dark Mode */
+.dark-mode input[type="text"]:focus,
+.dark-mode input[type="password"]:focus,
+.dark-mode input[type="number"]:focus,
+.dark-mode input[type="email"]:focus,
+.dark-mode input[type="date"]:focus,
+.dark-mode input[type="tel"]:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(169, 114, 255, 0.25); /* Leuchtenderer Fokus-Schatten */
+}

@@ -1,0 +1,99 @@
+/* assets/css/pages/_episodes.css */
+
+.series-episode-section {
+    margin-top: 40px;
+    border-top: 1px solid var(--color-border);
+    padding-top: 30px;
+}
+
+.collapsible-section {
+    border-bottom: 1px solid var(--color-border);
+}
+.collapsible-section:last-child {
+    border-bottom: none;
+}
+
+.collapsible-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 20px 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: var(--font-display);
+    color: var(--color-primary);
+    transition: background-color 0.2s ease;
+    text-align: left;
+}
+
+.collapsible-header:hover {
+    background-color: #f8f9fa;
+}
+
+.collapsible-chevron {
+    font-size: 1.8rem;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.collapsible-header[aria-expanded="true"] .collapsible-chevron {
+    transform: rotate(90deg);
+}
+
+.collapsible-content {
+    padding: 0 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), padding 0.5s ease;
+}
+
+.collapsible-content.is-open {
+    padding-top: 10px;
+    padding-bottom: 25px;
+    max-height: 1500px; /* Genug Platz für viele Episoden */
+}
+
+.episode-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.episode-list li {
+    display: flex;
+    gap: 15px;
+    padding: 15px 10px;
+    border-top: 1px solid #e9ecef;
+    align-items: center;
+}
+
+.episode-list li:first-child {
+    border-top: none;
+}
+
+.episode-number {
+    font-weight: 700;
+    color: var(--color-secondary);
+    min-width: 40px;
+    text-align: right;
+    font-size: 1.1rem;
+}
+
+.episode-title {
+    flex-grow: 1;
+    font-weight: 600;
+}
+
+.episode-runtime {
+    font-size: 0.9rem;
+    color: #6c757d;
+    white-space: nowrap;
+}
+
+/* Dark Mode Anpassung für den Hover-Effekt des Headers */
+.dark-mode .collapsible-header:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}

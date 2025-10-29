@@ -1,0 +1,85 @@
+/* ==========================================================================
+   assets/css/components/_film-look.css
+   Interaktiver Film-Look mit Vignette und Filmkorn
+   ========================================================================== */
+
+/* Pseudo-Elemente für die Overlays.
+   Sie werden nur sichtbar, wenn der Body die Klasse .film-look-active hat. */
+.film-look-vignette,
+.film-look-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Wichtig, damit man durch die Overlays klicken kann */
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9990; /* Liegt über dem Inhalt, aber unter Menüs/Modals */
+    transition: opacity 0.8s ease;
+}
+
+body.film-look-active .film-look-vignette,
+body.film-look-active .film-look-grain {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 1. Die Vignette: Dunkelt die Ränder ab */
+.film-look-vignette {
+    box-shadow: inset 0 0 15vw 5vw rgba(0, 0, 0, 0.5);
+}
+
+/* 2. Das Filmkorn: Eine animierte Textur */
+@keyframes grain-animation {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-1%, -1%); }
+    20% { transform: translate(1%, 1%); }
+    30% { transform: translate(-2%, 2%); }
+    40% { transform: translate(2%, -2%); }
+    50% { transform: translate(-3%, 3%); }
+    60% { transform: translate(3%, -3%); }
+    70% { transform: translate(-2%, 1%); }
+    80% { transform: translate(1%, -2%); }
+    90% { transform: translate(-1%, 2%); }
+}
+
+.film-look-grain {
+    /* Ein nahtloses Rauschen als SVG-Data-URI, keine extra Bilddatei nötig! */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.75" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23n)" opacity="0.15"/></svg>');
+    animation: grain-animation 0.5s steps(1) infinite;
+}
+
+/* 3. Der Schalter im Footer */
+.film-look-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.film-look-toggle:hover {
+    background-color: var(--color-primary);
+}
+
+.film-look-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: rgba(255, 255, 255, 0.7);
+    transition: fill 0.3s ease;
+}
+
+/* Der Schalter leuchtet, wenn der Effekt aktiv ist */
+body.film-look-active .film-look-toggle svg {
+    fill: var(--color-warning);
+}

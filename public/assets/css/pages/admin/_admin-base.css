@@ -1,0 +1,14 @@
+/* Allgemeine Anpassungen für das Admin-Body */
+body.admin-dashboard-body {
+    /* Optional: Wenn du einen anderen Hintergrund oder Basisstil für Admin-Seiten willst */
+    /* background-color: #e0e7eb; */
+}
+
+/* Wrapper für das gesamte Dashboard-Layout */
+.admin-dashboard-wrapper {
+    padding-top: 10px; /* Mehr Platz unter dem Header */
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column; /* Standard auf schmalen Bildschirmen */
+    gap: 30px; /* Abstand zwischen Sidebar und Content */
+}

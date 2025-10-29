@@ -1,0 +1,131 @@
+/* assets/css/components/_notifications.css */
+
+/* --- Toast Notifications --- */
+.toast-container {
+    position: fixed;
+    /* KORREKTUR: Position unterhalb des Headers, damit nichts verdeckt wird */
+    top: 90px; 
+    right: 20px;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 350px;
+    max-width: 90%;
+}
+
+.toast {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    pointer-events: auto;
+}
+
+.toast.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.toast-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* KORREKTUR: "Fabulous" Styling für Erfolgsmeldungen */
+.toast.success {
+    border-color: #28a745; /* Ein schönes, sattes Grün */
+    background-color: #f0fff4; /* Ein sehr heller Grünton für den Hintergrund */
+    color: #155724; /* Dunkelgrüner Text für guten Kontrast */
+}
+.toast.success .toast-icon {
+    color: #28a745;
+}
+
+.toast.error {
+    border-color: var(--color-danger);
+    background-color: #ffe6ef;
+    color: #721c24;
+}
+.toast.error .toast-icon {
+    color: var(--color-danger);
+}
+
+.toast-message p {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* --- Custom Confirm Modal (unverändert) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    pointer-events: none;
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-box {
+    background: var(--color-surface);
+    padding: 30px 40px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.visible .modal-box {
+    transform: scale(1);
+}
+
+.modal-box h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--color-primary);
+}
+
+.modal-box p {
+    margin-bottom: 30px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.modal-actions .btn {
+    flex: 1;
+    margin: 0;
+}

@@ -1,0 +1,56 @@
+:root {
+    /* === ZURÜCKSETZEN AUF URSPRÜNGLICHE FARBPALETTE === */
+    --color-primary: #390099;   /* Duke Blue */
+    --color-secondary: #9e0059;  /* Murrey */
+    --color-danger: #ff0054;    /* Folly */
+    --color-success: #28a745;   /* Strahlendes Grün für Erfolg */
+    --color-warning: #ffbd00;    /* Amber */
+
+    /* Schriftarten und andere Farben bleiben bestehen */
+    --font-display: 'Oswald', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --color-background: #f4f7f6;
+    --color-surface: #ffffff;
+    --color-text: #333333;
+    --color-border: #dddddd;
+}
+
+/* ==========================================================================
+   DARK MODE REDESIGN - "FABULOUS" EDITION
+   ========================================================================== */
+
+.dark-mode {
+    /* Tiefere, abgestufte Hintergrundfarben für mehr Tiefe */
+    --color-background: #0d1117;  /* Fast Schwarz, wie bei GitHub */
+    --color-surface: #161b22;   /* Ein sehr dunkles Grau für Karten und Oberflächen */
+    
+    /* Bessere Text-Hierarchie für Lesbarkeit */
+    --color-text: #e6edf3;       /* Heller, weicher Text für den Body */
+    --color-text-muted: #8b949e; /* Gedämpfteres Grau für sekundäre Infos */
+    --color-border: #30363d;     /* Subtile, dunkle Trennlinien */
+    
+    /* Leuchtende Akzentfarben, die auf dunklem Grund strahlen */
+    --color-primary: #a972ff;    /* Helleres, leuchtendes Lila */
+    --color-secondary: #f07167;  /* Leuchtendes Korallrot */
+    --color-success: #3fb950;    /* Ein lebendigeres Grün */
+    --color-danger: #f85149;     /* Ein klares Rot */
+
+    /* Schatten werden zu leuchtenden "Glows" */
+    --shadow-color: rgba(139, 148, 158, 0.2);
+    --shadow-elevation-low: 0 1px 2px var(--shadow-color);
+    --shadow-elevation-medium: 0 4px 10px var(--shadow-color);
+    --shadow-elevation-high: 0 10px 30px var(--shadow-color);
+}
+
+/* Wir fügen auch einen sanften Übergang für alle Farbänderungen hinzu */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Spezifische Anpassungen für Buttons im Dark Mode für den "Glow"-Effekt */
+.dark-mode .btn-primary:hover {
+    box-shadow: 0 0 15px rgba(169, 114, 255, 0.4);
+}
+.dark-mode .btn-secondary:hover {
+    box-shadow: 0 0 15px rgba(240, 113, 103, 0.4);
+}

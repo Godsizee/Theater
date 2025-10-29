@@ -1,0 +1,58 @@
+/* 1. Die Keyframe-Animation für die sanfte Bewegung (bleibt gleich) */
+@keyframes drift {
+    0% { transform: rotate(0deg) translateX(10px); }
+    50% { transform: rotate(180deg) translateX(-10px); }
+    100% { transform: rotate(360deg) translateX(10px); }
+}
+
+/* 2. Gemeinsame Stile für ALLE Formen über die .background-shape Klasse */
+.background-shape {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: -1;
+    animation: drift 50s infinite linear alternate;
+}
+
+/* 3. Individuelle Stile für jede der drei Formen */
+
+/* Form 1: Ein großer, primärfarbener Kreis oben rechts */
+.shape-1 {
+    width: 35vw;
+    height: 35vw;
+    top: -10vh;
+    right: 5vw;
+    background: var(--color-primary); /* #390099 */
+    opacity: 0.2;
+    animation-duration: 60s; /* Läuft etwas langsamer */
+}
+
+/* Form 2: Ein mittelgroßer, sekundärfarbener Kreis links */
+.shape-2 {
+    width: 30vw;
+    height: 30vw;
+    top: 25vh;
+    left: -15vw;
+    background: var(--color-secondary); /* #9e0059 */
+    opacity: 0.15;
+    animation-duration: 45s; /* Anderes Tempo für Variation */
+}
+
+/* Form 3: Ein kleinerer, warnfarbener Kreis unten */
+.shape-3 {
+    width: 25vw;
+    height: 25vw;
+    bottom: 5vh;
+    right: 30vw;
+    background: var(--color-warning); /* #ffbd00 */
+    opacity: 0.1;
+    animation-duration: 70s; /* Wieder ein anderes Tempo */
+}
+
+/* Auf Mobilgeräten machen wir die Formen etwas kleiner */
+@media (max-width: 768px) {
+    .background-shape {
+        width: 60vw;
+        height: 60vw;
+    }
+}

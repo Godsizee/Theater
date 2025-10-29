@@ -1,0 +1,129 @@
+/* ==========================================================================
+   assets/css/pages/_profile_data.css (Redesign "Sexy-Tabelle")
+   ========================================================================== */
+
+.profile-data-section {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    margin-bottom: 30px;
+    overflow: hidden; /* Behält die abgerundeten Ecken bei den Zeilen bei */
+}
+
+/* Der Header der Sektion (z.B. "Kundenübersicht") */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+/* Der "Bearbeiten"-Stift */
+.edit-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem; /* Etwas kleiner und dezenter */
+    color: #9ca3af; /* Helleres Grau */
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+.edit-icon:hover {
+    color: var(--color-primary);
+}
+
+/* Container für die Anzeige- und Bearbeitungs-Ansicht */
+.data-display-view,
+.data-edit-view {
+    padding: 0; /* Padding wird auf die Zeilen verschoben */
+}
+
+/* Jede einzelne Datenzeile (z.B. "Name: Sebastian Bade") */
+.data-row {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem 1.5rem; /* Großzügigerer Innenabstand */
+    line-height: 1.5;
+    border-bottom: 1px solid #f3f4f6; /* Sehr helle Trennlinie */
+}
+
+/* Zebra-Striping: Jede zweite Zeile bekommt einen ganz leichten Hintergrund */
+.data-row:nth-child(even) {
+    background-color: #f9fafb; /* Ein sehr helles Grau */
+}
+
+.data-row:last-child {
+    border-bottom: none;
+}
+
+/* Das Label (z.B. "Name:") */
+.data-label {
+    font-weight: 500;
+    color: #6b7280; /* Subtileres Grau */
+    flex: 1; /* Nimmt 1/3 des verfügbaren Platzes ein */
+}
+
+/* Der Wert (z.B. "Sebastian Bade") */
+.data-value {
+    font-weight: 600;
+    color: #111827; /* Dunkleres Schwarz für hohen Kontrast */
+    flex: 2; /* Nimmt 2/3 des verfügbaren Platzes ein */
+    text-align: left; /* Standard-Textausrichtung ist besser lesbar */
+    word-break: break-word; /* Besserer Umbruch bei langen Inhalten wie E-Mails */
+}
+
+/* --- Responsive Anpassung für Mobilgeräte --- */
+@media (max-width: 768px) {
+    .data-row {
+        flex-direction: column; /* Label und Wert untereinander anordnen */
+        align-items: flex-start;
+        gap: 0.25rem; /* Kleiner Abstand zwischen Label und Wert */
+        padding: 1rem 1.25rem;
+    }
+
+    .data-label {
+        font-size: 0.8rem; /* Label kleiner machen */
+        font-weight: 600;
+    }
+
+    .data-value {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+}
+
+
+/* --- Regeln für Bearbeitungs-Ansicht bleiben größtenteils gleich --- */
+.data-edit-view { padding: 1.5rem; }
+.form-grid-col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.data-edit-view { display: none; }
+.profile-data-section.is-editing .data-display-view { display: none; }
+.profile-data-section.is-editing .data-edit-view { display: block; }
+/* Dark Mode Anpassungen für die Datenzeilen */
+.dark-mode .data-row {
+    border-bottom-color: var(--color-border); /* Nutzt die dunkle Rahmenfarbe */
+}
+
+/* Passt das Zebra-Streifen-Design für den Dark Mode an */
+.dark-mode .data-row:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Passt die Farbe für die Beschriftung (z.B. "Anschrift") an */
+.dark-mode .data-label {
+    color: var(--color-text-muted); 
+}
+
+/* Passt die Farbe für den eigentlichen Wert an */
+.dark-mode .data-value {
+    color: var(--color-text);
+}

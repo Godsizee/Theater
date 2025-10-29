@@ -1,0 +1,74 @@
+.page-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-grow: 1;
+    box-sizing: border-box;
+
+    /* KORREKTUR: Feste Pixel-Abstände werden durch flüssige clamp()-Werte ersetzt. */
+    padding: clamp(80px, 8vw, 120px)   /* Oben */
+             clamp(15px, 3vw, 40px)   /* Rechts & Links */
+             clamp(60px, 7vw, 100px);  /* Unten */
+}
+
+.container {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin: 20px auto;
+    max-width: 500px;
+    width: 100%;
+}
+
+.container-lg {
+    max-width: 900px;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.banner-image-small {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .menu-box, .container {
+        padding: 25px;
+    }
+}
+
+/* Eine wiederverwendbare Box für statische Inhalte wie Impressum, AGB etc. */
+.content-box {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.content-box h2 {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.content-box p {
+    font-size: 1.1rem;
+    line-height: 1.7; /* Verbessert die Lesbarkeit */
+}
+
+.content-box p strong {
+    color: var(--color-text); /* Stellt sicher, dass auch fette Schrift im Dark Mode hell ist */
+}

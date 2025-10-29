@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="character"></div>
+    <div id="enemy"></div>
+
+    <div id="hud">
+        <div id="score">Score: 0</div>
+        <div id="timer">0</div>
+    </div>
+    
+    <div id="speechBubble"></div>
+
+    <div id="gameOverScreen">
+        <div class="gameOver-container">
+            <h1 class="gameOver-title">Game Over</h1>
+            <div id="finalScore">Score: 0</div>
+            <div id="finalTime">Zeit: 00:00</div>
+            <button id="restartBtn">Nochmal ?</button>
+        </div>
+    </div>
+
+    <div id="startScreen">
+        <div class="start-container">
+            <h1 class="game-title">Endless Runner Deluxe</h1>
+            <p class="selection-prompt">Wähle deinen Charakter</p>
+            <div id="characterSelection" class="character-selection-container">
+                <div class="character-card" id="card-koehnel">
+                    <img src="character1/Avatar.png" alt="Köhnel" class="character-preview">
+                    <h2 class="character-name">Köhnel</h2>
+                    <button class="select-btn" data-character="koehnel">Wählen & Starten</button>
+                </div>
+
+                <div class="character-card" id="card-ray">
+                    <img src="character2/Avatar.png" alt="Ray Nalpatamkalom" class="character-preview">
+                    <h2 class="character-name">Ray Nalpatamkalom</h2>
+                    <button class="select-btn" data-character="ray">Wählen & Starten</button>
+                </div>
+            </div>
+            <div class="controls-info">
+                <p><strong>Steuerung:</strong> Leertaste (Sprung) & D (Ducken)</p>
+                <p class="mobile-controls"><strong>Mobile:</strong> Rechts tippen (Sprung) & Links tippen (Ducken)</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="game.js"></script> 
+</body>
+</html>

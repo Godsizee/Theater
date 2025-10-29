@@ -1,0 +1,40 @@
+/* Stile für statische Seiten wie Impressum, Datenschutz etc. */
+
+.page-intro {
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-text-muted);
+}
+
+.content-box--spaced {
+    margin-top: 30px;
+}
+
+.disclaimer-section {
+    margin-top: 50px;
+}
+
+.disclaimer-section h2 {
+    margin-bottom: 30px;
+}
+
+.disclaimer-section h4 {
+    font-family: var(--font-display);
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.page-signature {
+    margin-top: 50px;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+}
+
+/* Dark Mode Anpassung für die Unter-Überschriften im Disclaimer */
+.dark-mode .disclaimer-section h4 {
+    color: var(--color-text);
+}

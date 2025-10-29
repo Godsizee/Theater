@@ -1,0 +1,285 @@
+/* Ändere die Schriftart für das gesamte Spiel */
+body {
+  background-image: url('Hintergrund.png');
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  background-size: 75%;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif; /* Neue Schriftart */
+}
+
+#character {
+  background-image: url('character1/Avatar.png');
+  background-size: contain;      /* Stellt sicher, dass das ganze Bild sichtbar ist */
+  background-repeat: no-repeat;  /* Verhindert, dass das Bild gekachelt wird */
+  background-position: center bottom; /* Richtet den Avatar unten in seiner Box aus */
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  top: 350px;
+  left: 50px;
+  transition: none;
+}
+
+#enemy {
+  height: 280px;
+  width: 280px;
+  position: absolute;
+  top: 450px;
+  left: 1200px;
+  background-image: url('character1/Kothaufen.png');
+  background-size: contain;      /* Stellt sicher, dass das ganze Bild sichtbar ist */
+  background-repeat: no-repeat;  /* Verhindert, dass das Bild gekachelt wird */
+  background-position: center bottom; /* Richtet den Avatar unten in seiner Box aus */
+}
+
+#speechBubble {
+  position: absolute;
+  top: 180px; /* Position über dem Charakter */
+  left: 330px; /* Etwas rechts neben der Figur */
+  width: 250px;
+  height: 200px;
+  background-size: 100%;
+  display: none; /* Anfangs nicht sichtbar */
+}
+
+/* ## NEUES GAME OVER SCREEN DESIGN ## */
+
+#gameOverScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(43, 46, 74, 0.7) 0%, rgba(78, 67, 118, 0.7) 100%);
+  display: flex; /* Bleibt flex, um den Container zu zentrieren */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.gameOver-container {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 40px 50px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gameOver-title {
+  font-size: 4.5rem;
+  margin: 0 0 20px 0;
+  color: #e84545;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  font-family: 'Poppins', sans-serif;
+}
+
+#finalScore,
+#finalTime {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+  color: #f0f0f0;
+}
+
+/* Fügt die Icons hinzu, wie beim HUD */
+#finalScore::before {
+  content: '🏆';
+  font-size: 1.5rem;
+}
+
+#finalTime::before {
+  content: '⏱️';
+  font-size: 1.5rem;
+}
+
+/* Style den Restart-Button wie den Select-Button */
+#restartBtn {
+  background: #e84545;
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 30px;
+}
+
+#restartBtn:hover {
+  background: #903749;
+}
+
+#startScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #2b2e4a 0%, #4e4376 100%); /* Farbverlauf */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 10;
+  padding: 20px;
+}
+
+.start-container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.game-title {
+  font-size: 4rem;
+  margin: 0;
+  color: #e84545; /* Akzentfarbe */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.selection-prompt {
+  font-size: 1.5rem;
+  margin: 10px 0 30px 0;
+  color: #f0f0f0;
+}
+
+.character-selection-container {
+  display: flex;
+  gap: 30px; /* Abstand zwischen den Karten */
+  justify-content: center;
+}
+
+.character-card {
+  background: #2b2e4a;
+  border: 2px solid #903749;
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  /* HINZUGEFÜGT: Macht die Karte zu einem Flex-Container */
+  display: flex;
+  flex-direction: column;
+}
+
+.character-card:hover:not(.selected) {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(232, 69, 69, 0.3);
+}
+
+.character-card.selected {
+    border-color: #e84545;
+    box-shadow: 0 0 20px rgba(232, 69, 69, 0.5);
+    transform: scale(1.05);
+}
+
+.character-preview {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background: #53354a;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.character-name {
+  font-size: 1.8rem;
+  margin: 0 0 20px 0;
+  color: #f0f0f0;
+  /* HINZUGEFÜGT: Der Name nimmt den freien Platz ein und drückt den Button nach unten */
+  flex-grow: 1;
+  /* Optional: Zentriert den Text innerhalb des ihm zur Verfügung stehenden Raums */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-btn {
+  background: #e84545;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.select-btn:hover {
+  background: #903749;
+}
+
+.select-btn:disabled {
+    background: #555;
+    cursor: not-allowed;
+}
+
+.controls-info {
+    margin-top: 40px;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* ## NEUES HUD-DESIGN (SCORE & TIMER) ## */
+
+#hud {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px 25px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+#score,
+#timer {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Fügt die Icons vor den Anzeigen hinzu */
+#score::before {
+  content: '🏆';
+  font-size: 1.5rem;
+}
+
+#timer::before {
+  content: '⏱️';
+  font-size: 1.5rem;
+}

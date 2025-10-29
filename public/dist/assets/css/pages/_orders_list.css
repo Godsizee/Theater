@@ -1,0 +1,107 @@
+.order-list-container {
+    border-top: 1px solid var(--color-border);
+}
+
+.order-list-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    border-bottom: 1px solid var(--color-border);
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.order-list-row:hover {
+    background-color: #f8f9fa;
+}
+
+.order-list-main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.order-list-date {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.order-list-previews {
+    display: flex;
+    gap: 10px;
+}
+
+.order-list-previews img {
+    width: 50px;
+    height: 75px;
+    object-fit: cover;
+    border: 1px solid var(--color-border);
+}
+
+.order-preview-more {
+    width: 50px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #6c757d;
+}
+
+.order-list-status {
+    font-size: 0.9rem;
+    color: #333;
+}
+.order-list-status span {
+    display: block;
+    color: #6c757d;
+}
+
+.order-list-aside {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.order-list-price {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.order-list-chevron {
+    font-size: 1.5rem;
+    color: #ccc;
+}
+
+.support-order-row {
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.support-order-row:hover {
+    background-color: #f8f9fa;
+}
+
+.order-row-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.order-row-actions .btn {
+    margin-bottom: 0;
+    width: 120px;
+    flex-shrink: 0;
+}
+
+/* Dark Mode Anpassung für den Hover-Effekt */
+.dark-mode .order-list-row:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}

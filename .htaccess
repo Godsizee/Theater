@@ -1,0 +1,23 @@
+# .htaccess
+
+# Schaltet die URL-Rewrite-Engine von Apache ein
+RewriteEngine On
+
+# Definiert die Basis für die Rewrite-Regeln.
+# WICHTIG: Passe diesen Pfad an dein lokales Setup an!
+# Wenn deine Seite unter http://localhost/files/Theater/ läuft, ist dies der richtige Pfad.
+RewriteBase /files/Theater/
+
+# Bedingung 1: Führe die folgende Regel nur aus,
+# wenn die angeforderte URL KEINE existierende Datei ist.
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Bedingung 2: Führe die folgende Regel nur aus,
+# wenn die angeforderte URL KEIN existierendes Verzeichnis ist.
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Die Regel: Leite alle anderen Anfragen auf die index.php um.
+# Der ursprüngliche Pfad (z.B. "login" oder "film/123") wird als 'url'-Parameter übergeben.
+# [L] bedeutet, dass dies die letzte Regel ist.
+# [QSA] bedeutet, dass bestehende Query-Parameter (wie ?sort=asc) angehängt werden.
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]

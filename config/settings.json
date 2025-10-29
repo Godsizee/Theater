@@ -1,0 +1,6 @@
+{
+    "site_title": "Filmverleih",
+    "items_per_page": 24,
+    "default_sort_order": "name_asc",
+    "allow_registrations": true
+}

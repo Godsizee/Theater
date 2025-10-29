@@ -1,0 +1,55 @@
+/* ==========================================================================
+   _card-effects.css (Mit dynamischer Akzentfarbe)
+   ========================================================================== */
+
+.movie-grid,
+.recommendations-grid {
+    perspective: 1500px;
+}
+
+.movie-card,
+.recommendation-card {
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+    /* Fallback-Farbe, falls die Farbanalyse fehlschlägt */
+    --accent-color: var(--color-warning); 
+}
+
+.movie-card:hover,
+.recommendation-card:hover {
+    transform: scale(1.05) rotateY(-1deg) rotateX(1.25deg);
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+                0 0 30px var(--accent-color);
+}
+
+/* Spezifischer, subtilerer Effekt NUR für das Admin-Dashboard */
+.admin-dashboard-body .movie-card:hover,
+.admin-dashboard-body .recommendation-card:hover {
+    transform: none; /* Deaktiviert jegliche Bewegung oder Skalierung */
+    cursor: default; /* Optional: Ändert den Mauszeiger, um die fehlende Interaktion zu verdeutlichen */
+}
+
+
+/* Der Lichtreflex (Sheen-Effekt) bleibt unverändert */
+.movie-card::after,
+.recommendation-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient( to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100% );
+    left: -100%;
+    transform: skewX(-25deg);
+    transition: left 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.movie-card:hover::after,
+.recommendation-card:hover::after {
+    left: 150%;
+    transition-delay: 0.1s;
+}

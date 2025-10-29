@@ -1,0 +1,73 @@
+/* C:\xampp\htdocs\files\Theater\assets\css\pages\_admin-missing-data.css */
+
+/* Liste der Filme mit fehlenden Daten */
+.missing-data-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.missing-data-list li {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    gap: 10px;
+}
+
+.missing-data-list li:last-child {
+    border-bottom: none;
+}
+
+.missing-data-list li:nth-child(odd) {
+    background-color: #fcfcfc; /* Leichter Streifen-Effekt */
+}
+
+.missing-data-list li span:first-child {
+    flex-grow: 1; /* Filmtitel nimmt den meisten Platz ein */
+    font-weight: 600;
+}
+
+.missing-data-list .missing-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-right: 10px;
+}
+
+.missing-data-list .label { /* Kleine Labels für fehlende Felder */
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: #f8d7da; /* Hellrot für Warnung */
+    color: var(--color-danger); /* Dunkelrot als Textfarbe */
+    white-space: nowrap; /* Verhindert Umbrüche innerhalb des Labels */
+}
+
+@media (max-width: 480px) {
+    .missing-data-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+    .missing-data-list .missing-labels {
+        margin-right: 0;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Dark Mode Anpassung für die Liste mit fehlenden Daten */
+.dark-mode .missing-data-list li:nth-child(odd) {
+    background-color: var(--color-surface);
+}
+
+.dark-mode .missing-data-list li:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}

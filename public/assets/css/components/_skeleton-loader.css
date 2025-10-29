@@ -1,0 +1,82 @@
+/* assets/css/components/_skeleton-loader.css */
+
+/* Keyframe-Animation für den Lade-Puls-Effekt */
+@keyframes pulse-bg {
+    0% {
+        background-color: #f0f2f5;
+    }
+    50% {
+        background-color: #e6e8eb;
+    }
+    100% {
+        background-color: #f0f2f5;
+    }
+}
+
+/* Der Container für eine einzelne Platzhalter-Karte */
+.skeleton-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Der Platzhalter für das Poster */
+.skeleton-poster {
+    width: 100%;
+    /* Berechnet die Höhe, um ein typisches Poster-Seitenverhältnis zu haben */
+    padding-top: 150%; 
+    background-color: #e0e0e0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    animation: pulse-bg 1.5s ease-in-out infinite;
+}
+
+/* Der Container für den Text-Inhalt */
+.skeleton-content {
+    padding: 25px;
+}
+
+/* Platzhalter für den Titel */
+.skeleton-title {
+    width: 80%;
+    height: 24px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    animation: pulse-bg 1.5s ease-in-out infinite;
+}
+
+/* Container für die Meta-Tags (FSK, Preis) */
+.skeleton-meta {
+    display: flex;
+    gap: 10px;
+}
+
+/* Platzhalter für einen einzelnen Meta-Tag */
+.skeleton-meta-tag {
+    width: 60px;
+    height: 20px;
+    border-radius: 20px;
+    animation: pulse-bg 1.5s ease-in-out infinite;
+}
+/* Dark Mode für Skeleton Loader */
+.dark-mode .skeleton-poster,
+.dark-mode .skeleton-title,
+.dark-mode .skeleton-meta-tag {
+    /* Setzt die Animation auf eine dunkle Puls-Version */
+    animation: pulse-bg-dark 1.5s ease-in-out infinite;
+}
+
+/* Eigene Keyframe-Animation für den Dark Mode */
+@keyframes pulse-bg-dark {
+    0% {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+    50% {
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+    100% {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+}

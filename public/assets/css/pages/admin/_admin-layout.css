@@ -1,0 +1,15 @@
+/* Mobile First: Standard ist eine einzelne Spalte */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* Erst ab einer Breite von 769px wird das 2-Spalten-Layout aktiv */
+@media (min-width: 769px) {
+    .dashboard-grid {
+        grid-template-columns: 250px 1fr; /* Das Desktop-Layout */
+        gap: 40px;
+    }
+}

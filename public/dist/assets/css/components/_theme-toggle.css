@@ -1,0 +1,26 @@
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.theme-toggle img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+.theme-toggle:hover img {
+    transform: scale(1.1) rotate(-15deg);
+}
+
+/* Standardmäßig ist die Sonne sichtbar, der Mond versteckt */
+.theme-toggle .moon-icon { display: none; }
+.theme-toggle .sun-icon { display: block; }
+
+/* Im Dark Mode ist es umgekehrt */
+.dark-mode .theme-toggle .moon-icon { display: block; }
+.dark-mode .theme-toggle .sun-icon { display: none; }

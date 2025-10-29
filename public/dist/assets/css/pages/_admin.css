@@ -1,0 +1,13 @@
+/* C:\xampp\htdocs\files\Theater\assets\css\pages\_admin.css */
+
+/* Importiere Admin-spezifische Basis- und Layout-Stile */
+@import url('admin/_admin-base.css');
+@import url('admin/_admin-layout.css');
+@import url('admin/_admin-sidebar.css');
+@import url('admin/_admin-content.css');
+
+/* Importiere Admin-spezifische Komponenten */
+@import url('admin/_admin-widgets.css');
+@import url('admin/_admin-missing-data.css');
+@import url('admin/_admin-users-table.css');
+@import url('admin/_admin-forms.css');

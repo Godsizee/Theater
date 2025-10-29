@@ -1,0 +1,45 @@
+/* assets/css/components/_cart-icon.css */
+
+.cart-widget {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.cart-widget svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+    transition: transform 0.2s ease-in-out;
+}
+
+.cart-widget:hover svg {
+    transform: scale(1.1);
+}
+
+.cart-item-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: var(--color-danger);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--color-primary);
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+}
+
+.cart-item-count.visible {
+    transform: scale(1);
+    opacity: 1;
+}

@@ -1,0 +1,100 @@
+.order-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.order-detail-section {
+    padding-top: 30px;
+    border-top: 1px solid var(--color-border);
+}
+
+.order-detail-section h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+}
+
+.detail-list .detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+.detail-list .detail-label { color: #6c757d; }
+.detail-list .total-sum { font-weight: 600; font-size: 1rem; }
+.detail-list hr { border: none; border-top: 1px solid var(--color-border); margin: 15px 0; }
+.detail-list small { color: #6c757d; font-size: 0.8rem; }
+
+.delivery-status-tracker {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    background-color: #e9ecef;
+    height: 4px;
+    border-radius: 2px;
+}
+.status-progress {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+}
+.status-point {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    background-color: #e9ecef;
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    margin-top: -8px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.status-point.active {
+    background-color: var(--color-surface);
+    border-color: var(--color-primary);
+}
+.status-point span {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    color: #6c757d;
+}
+.status-point.active span {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.detail-link {
+    display: block;
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.order-item-list { display: flex; flex-direction: column; gap: 20px; }
+
+.product-item-row { display: flex; gap: 20px; }
+.product-item-img { width: 80px; height: 120px; object-fit: cover; }
+.product-item-details { flex-grow: 1; }
+.product-item-details p { margin: 0 0 5px 0; }
+.product-title { font-weight: 600; }
+.product-meta { font-size: 0.9rem; color: #6c757d; }
+.product-item-price { font-weight: 600; }
+
+.payment-info { margin-bottom: 10px; }
+.payment-info span { display: block; }
+
+address { font-style: normal; line-height: 1.6; }
+
+@media (max-width: 768px) {
+    .order-details-grid { grid-template-columns: 1fr; }
+}

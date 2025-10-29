@@ -1,0 +1,43 @@
+/* C:\xampp\htdocs\files\Theater\assets\css\pages\_admin-users-table.css */
+
+/* Styling für die Benutzertabelle */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-table th,
+.user-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--color-border);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.user-table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    color: #555;
+}
+
+.user-table tbody tr:hover {
+    background-color: #fafafa;
+}
+
+/* Responsive Tabelle: Bei kleinen Bildschirmen Horizontal scrollbar */
+.table-responsive {
+    overflow-x: auto; /* Aktiviert horizontales Scrollen, wenn Inhalt breiter ist als Container */
+    -webkit-overflow-scrolling: touch; /* Verbessert das Scroll-Verhalten auf mobilen Geräten */
+    margin-bottom: 20px;
+}
+
+/* Dark Mode für Tabellen */
+.dark-mode .user-table th {
+    background-color: rgba(255, 255, 255, 0.05); /* Sehr dezenter hellerer Hintergrund */
+    color: var(--color-text);
+}
+
+.dark-mode .user-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.03); /* Subtiler Hover-Effekt */
+}

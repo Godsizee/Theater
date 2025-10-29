@@ -1,0 +1,33 @@
+/* C:\xampp\htdocs\files\Theater\assets\css\components\_tables.css */
+
+/* Tabellen */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid var(--color-border);
+    text-align: left;
+    vertical-align: middle;
+}
+th {
+    background-color: #f2f2f2;
+}
+tr:hover {
+    background-color: #fafafa;
+}
+td.actions a {
+    text-decoration: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-right: 5px;
+    font-size: 14px;
+    display: inline-block;
+}
+.actions .edit-btn { background-color: var(--color-warning); color: #333; }
+.actions .edit-btn:hover { background-color: #e6ac00; }
+.actions .delete-btn { background-color: var(--color-danger); }
+.actions .delete-btn:hover { background-color: #d60047; }

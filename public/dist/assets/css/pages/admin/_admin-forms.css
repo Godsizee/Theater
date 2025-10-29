@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Styling für Formulare im Admin-Dashboard
+   ========================================================================== */
+
+/* KI-Poster-Generator Box mit "Wow-Effekt" */
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 5px rgba(158, 0, 89, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(158, 0, 89, 0.5); }
+    100% { box-shadow: 0 0 5px rgba(158, 0, 89, 0.2); }
+}
+
+.ai-generator-box {
+    margin-top: 30px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 2px; /* Platz für den animierten Rand */
+    background: linear-gradient(135deg, #f5f3ff, #faf7fc);
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.ai-generator-box-inner {
+    background: var(--color-surface);
+    padding: 20px;
+    border-radius: 6px;
+}
+
+/* Das "KI"-Badge oben auf der Box */
+.ai-generator-box-inner::before {
+    content: 'KI';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.ai-generator-box h4 {
+    margin-top: 10px;
+    color: var(--color-primary);
+}
+
+.ai-generator-box p {
+    margin-top: 0;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.ai-generator-box label {
+    font-weight: 600;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.ai-generator-box textarea {
+    width: 100%;
+    min-height: 80px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 10px;
+}
+
+#copy-prompt-btn {
+    margin-top: 10px;
+    font-weight: 600;
+    background-color: var(--color-secondary);
+    transition: all 0.2s ease;
+}
+#copy-prompt-btn:hover {
+    background-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+/* Das neue 2-spaltige Grid für das Poster-Management */
+.poster-management-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+/* Styling für die Vorschau des aktuellen Posters (Problem 1) */
+.current-poster-container {
+    padding: 10px;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    display: inline-block; /* Verhindert, dass der Container die volle Breite einnimmt */
+}
+
+.current-poster-preview {
+    max-width: 200px; /* Begrenzt die Größe der Vorschau */
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+/* Die AI-Generator-Box soll keinen oberen Abstand mehr haben, da das Grid den Abstand regelt */
+.ai-generator-box {
+    margin-top: 0;
+}
+
+/* Responsive Anpassung: Auf kleineren Bildschirmen alles untereinander */
+@media (max-width: 992px) {
+    .poster-management-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
